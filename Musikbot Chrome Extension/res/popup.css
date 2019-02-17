@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+body {
+	width: 40ch;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 32px;
+}
+
+div {
+	vertical-align: middle;
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.msg_success {
+	color: green;
+}
+.msg_error {
+	color: red;
+}
+.msg_notify {
+	color:yellow;
+}
