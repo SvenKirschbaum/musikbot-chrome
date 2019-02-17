@@ -1,11 +1,16 @@
 const regex = /^(http(s)??\:\/\/)?(www\.)?((youtube\.com\/watch\?v=)|(youtu.be\/))([a-zA-Z0-9\-_])+/;
 
 chrome.runtime.onInstalled.addListener(function() {
-	chrome.storage.sync.set({
-		authtoken : ""
-	}, function() {
+	chrome.storage.sync.get(['authtoken'],function(result) {
+		if(typeof result.authtoken === 'undefined') {
+			chrome.storage.sync.set({
+				authtoken : ""
+			}, function() {
 
+			});
+		}
 	});
+	
 });
 
 //Clicking on the button will give the extension access to the current tab,
