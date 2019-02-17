@@ -1,6 +1,6 @@
 {
 	"name": "Musikbot Extension",
-	"version": "0.1",
+	"version": "0.2",
 	"description": "Schneller Lieder hinzufügen",
 	"manifest_version": 2,
     "options_ui": {
@@ -9,8 +9,7 @@
     },
 	"permissions": [
 		"storage",
-		"webNavigation",
-		"activeTab"
+		"tabs"
 	],
 	"icons": {
 		"16": "res/favicon_16.png",

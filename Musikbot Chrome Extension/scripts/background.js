@@ -19,13 +19,15 @@ chrome.runtime.onInstalled.addListener(function() {
 	 * actions : [ new chrome.declarativeContent.ShowPageAction() ] } ]); });
 	 */
 
-	chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
-		if (regex.test(details.url)) {
-			chrome.pageAction.show(details.tabId, function() {
-			});
-		} else {
-			chrome.pageAction.hide(details.tabId, function() {
-			});
+	chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+		if(typeof(changeInfo.url) !== 'undefined') {
+			if (regex.test(changeInfo.url)) {
+				chrome.pageAction.show(tabId, function() {
+				});
+			} else {
+				chrome.pageAction.hide(tabId, function() {
+				});
+			}
 		}
 	});
 });
