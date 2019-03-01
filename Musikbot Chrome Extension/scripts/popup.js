@@ -15,7 +15,7 @@ function submitURL(url) {
 			data : url,
 			method : "POST",
 			headers : {
-				"Authorization" : result.authtoken
+				"Authorization" : "Bearer " + result.authtoken
 			},
 			contentType : false
 		}).done(function(data, textStatus, jqXHR) {
