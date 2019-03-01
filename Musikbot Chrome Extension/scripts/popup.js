@@ -41,6 +41,10 @@ function handleResponse(data, textStatus, jqXHR){
 		type = "msg_notify";
 	}
 	
+	if(jqXHR.status == 401) {
+		message="Auth-Token ungültig";
+	}
+	
 	if(message) {
 		$("#loading").fadeOut(300,function() {
 			$("body").append("<div style=\"display:none\" class=\"message "+type+"\">"+message+"</div>");
