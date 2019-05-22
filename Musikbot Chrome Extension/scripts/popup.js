@@ -6,49 +6,48 @@ window.onload = function() {
 		var activeTab = tabs[0];
 		submitURL(activeTab.url);
 	});
-}
+};
 function submitURL(url) {
 	chrome.storage.sync.get(['authtoken'],function(result) {
-		$.ajax(
-		{
-			url : "https://musikbot.elite12.de/api/songs",
-			data : url,
-			method : "POST",
-			headers : {
-				"Authorization" : "Bearer " + result.authtoken
-			},
-			contentType : false
-		}).done(function(data, textStatus, jqXHR) {
-			handleResponse(data, textStatus, jqXHR);
-		}).fail(function(data, textStatus, jqXHR) {
-			handleResponse(data, textStatus, jqXHR);
+		let headers = new Headers();
+		headers.append("Content-Type", "text/plain");
+		if (result.authtoken) headers.append("Authorization", "Bearer " + result.authtoken);
+		fetch("https://musikbot.elite12.de/api/v2/songs", {
+			method: 'POST',
+			body: url,
+			headers: headers
+		})
+		.then((res) => {
+			if(!res.ok) throw new Error(res.status === 403 ? "Auth Token ungültig" : res.statusText);
+			return res;
+		})
+		.then((res) => res.json())
+		.then((res) => {
+			handleResponse(res)
+		})
+		.catch(reason => {
+			handleResponse(null,reason)
 		});
 	});
 	
 }
 
-function handleResponse(data, textStatus, jqXHR){
-	if(typeof jqXHR != "object") {jqXHR = data}
-	var message = jqXHR.responseText;
-	var type;
-	if(jqXHR.status >= 200 && jqXHR.status <300) {
-		type = "msg_success";
-	}
-	else if(jqXHR.status >= 400 && jqXHR.status <600) {
-		type = "msg_error";
+function handleResponse(response,error){
+	let type;
+	let message;
+	if(response) {
+		if(!response.success) type = "msg_error";
+		else if(response.warn) type = "msg_notify";
+		else type = "msg_success";
+		message = response.message;
 	}
 	else {
-		type = "msg_notify";
+		type = "msg_error";
+		message = error;
 	}
-	
-	if(jqXHR.status == 401) {
-		message="Auth-Token ungültig";
-	}
-	
-	if(message) {
-		$("#loading").fadeOut(300,function() {
-			$("body").append("<div style=\"display:none\" class=\"message "+type+"\">"+message+"</div>");
-			$(".message").fadeIn(300);
-		});
-	}
+
+	$("#loading").fadeOut(300,function() {
+		$("body").append("<div style=\"display:none\" class=\"message "+type+"\">"+message+"</div>");
+		$(".message").fadeIn(300);
+	});
 }
