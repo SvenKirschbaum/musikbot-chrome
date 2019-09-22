@@ -1,6 +1,6 @@
 {
 	"name": "Musikbot Extension",
-	"version": "0.8",
+	"version": "0.9",
 	"description": "Schneller Lieder hinzufügen",
 	"manifest_version": 2,
     "options_ui": {
@@ -32,5 +32,8 @@
 			"48": "res/favicon_48.png",
 			"128": "res/favicon_128.png"
 		}
+	},
+	"externally_connectable": {
+		"matches": ["*://musikbot.elite12.de/*"]
 	}
 }
