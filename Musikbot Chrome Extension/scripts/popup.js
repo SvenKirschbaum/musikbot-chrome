@@ -18,7 +18,7 @@ function submitURL(url) {
 			headers: headers
 		})
 		.then((res) => {
-			if(!res.ok) throw new Error(res.status === 403 ? "Auth Token ungültig" : res.statusText);
+			if(!res.ok) throw new Error(res.status === 401 ? "Auth Token ungültig" : res.statusText);
 			return res;
 		})
 		.then((res) => res.json())
