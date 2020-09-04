@@ -1,16 +1,18 @@
 {
 	"name": "Musikbot Extension",
-	"version": "0.10",
+	"version": "0.11",
 	"description": "Schneller Lieder hinzufügen",
 	"manifest_version": 2,
-    "options_ui": {
-    	"page": "ui/options.html",
-    	"open_in_tab": false
-    },
+	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvS+A6youM1Msc0GOC+3MZae3gzzcq8kFaLk3gvhMODlsS1Mc+R9tPMREUgE+lkr2y1EBOVy3UpttxM9fj5eiEEkm3F0UWkUfPFnsuNYWwD6dzK6xVZ2Z47KNNQVlmjGlv22J/wlLTpmA8InR8SjBG/LrYyZKzBuAI4TB4YAlxwmqznmcLKoKeJDozJQmfeminMXJ3yo1onZaCvO1LzFBN29Uc1RMmyf/mgUm916lAtztiHKWCYqkDfeIR1/E8FJ35+lYFbW6OiXAKzGUOZWRjvANfn7N86nq8OPYwpiyU/gA4iZfOwQ9zEqNyCHd/VRkwXj4i9cyDlbQ74KYlUQ+xQIDAQAB",
+	"options_ui": {
+		"page": "ui/options.html",
+		"open_in_tab": false
+	},
 	"permissions": [
-		"storage",
+		"identity",
 		"declarativeContent",
-		"activeTab"
+		"activeTab",
+		"https://id.elite12.de/auth/*"
 	],
 	"icons": {
 		"16": "res/favicon_16.png",
@@ -32,8 +34,5 @@
 			"48": "res/favicon_48.png",
 			"128": "res/favicon_128.png"
 		}
-	},
-	"externally_connectable": {
-		"matches": ["*://musikbot.elite12.de/*"]
 	}
 }

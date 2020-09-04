@@ -1,16 +1,3 @@
-chrome.runtime.onInstalled.addListener(function () {
-    chrome.storage.sync.get(['authtoken'], function (result) {
-        if (typeof result.authtoken === 'undefined') {
-            chrome.storage.sync.set({
-                authtoken: ""
-            }, function () {
-
-            });
-        }
-    });
-
-});
-
 // Clicking on the button will give the extension access to the current tab,
 // so the icon will not be disabled after the condition below no longer
 // applies.
@@ -33,14 +20,3 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         });
     }
 });
-
-//React to messages from web page
-chrome.runtime.onMessageExternal.addListener(
-    function (request, sender, sendResponse) {
-    	if(request === "token-request") {
-			chrome.storage.sync.get(['authtoken'],function(result) {
-				sendResponse(result);
-			});
-		}
-    }
-);
