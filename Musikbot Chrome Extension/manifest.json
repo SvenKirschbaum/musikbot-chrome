@@ -1,18 +1,13 @@
 {
 	"name": "Musikbot Extension",
-	"version": "0.11",
+	"version": "0.12",
 	"description": "Schneller Lieder hinzufügen",
 	"manifest_version": 2,
 	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvS+A6youM1Msc0GOC+3MZae3gzzcq8kFaLk3gvhMODlsS1Mc+R9tPMREUgE+lkr2y1EBOVy3UpttxM9fj5eiEEkm3F0UWkUfPFnsuNYWwD6dzK6xVZ2Z47KNNQVlmjGlv22J/wlLTpmA8InR8SjBG/LrYyZKzBuAI4TB4YAlxwmqznmcLKoKeJDozJQmfeminMXJ3yo1onZaCvO1LzFBN29Uc1RMmyf/mgUm916lAtztiHKWCYqkDfeIR1/E8FJ35+lYFbW6OiXAKzGUOZWRjvANfn7N86nq8OPYwpiyU/gA4iZfOwQ9zEqNyCHd/VRkwXj4i9cyDlbQ74KYlUQ+xQIDAQAB",
-	"options_ui": {
-		"page": "ui/options.html",
-		"open_in_tab": false
-	},
 	"permissions": [
 		"identity",
 		"declarativeContent",
-		"activeTab",
-		"https://id.elite12.de/auth/*"
+		"activeTab"
 	],
 	"icons": {
 		"16": "res/favicon_16.png",
