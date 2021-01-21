@@ -1,11 +1,10 @@
 {
 	"name": "Musikbot Extension",
-	"version": "0.12",
+	"version": "0.13",
 	"description": "Schneller Lieder hinzufügen",
 	"manifest_version": 2,
 	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvS+A6youM1Msc0GOC+3MZae3gzzcq8kFaLk3gvhMODlsS1Mc+R9tPMREUgE+lkr2y1EBOVy3UpttxM9fj5eiEEkm3F0UWkUfPFnsuNYWwD6dzK6xVZ2Z47KNNQVlmjGlv22J/wlLTpmA8InR8SjBG/LrYyZKzBuAI4TB4YAlxwmqznmcLKoKeJDozJQmfeminMXJ3yo1onZaCvO1LzFBN29Uc1RMmyf/mgUm916lAtztiHKWCYqkDfeIR1/E8FJ35+lYFbW6OiXAKzGUOZWRjvANfn7N86nq8OPYwpiyU/gA4iZfOwQ9zEqNyCHd/VRkwXj4i9cyDlbQ74KYlUQ+xQIDAQAB",
 	"permissions": [
-		"identity",
 		"declarativeContent",
 		"activeTab"
 	],
@@ -16,8 +15,9 @@
 	},
 	"background": {
 		"scripts": [
-			"scripts/background.js",
-			"thirdParty/jquery-3.3.1.min.js"
+			"thirdParty/jquery-3.3.1.min.js",
+			"thirdParty/keycloak.js",
+			"scripts/background.js"
 		],
 		"persistent": false
 	},
@@ -29,5 +29,12 @@
 			"48": "res/favicon_48.png",
 			"128": "res/favicon_128.png"
 		}
-	}
+	},
+	"web_accessible_resources": [
+		"ui/login.html",
+		"ui/silent-sso.html",
+		"thirdParty/*",
+		"scripts/login.js",
+		"scripts/silent-sso.js"
+	]
 }
