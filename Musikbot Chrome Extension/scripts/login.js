@@ -15,6 +15,5 @@ keycloak.onReady = () => {
 keycloak.init({
     onLoad: 'login-required',
     checkLoginIframe: false,
-    silentCheckSsoRedirectUri: window.location.origin + '/ui/silent-sso.html',
     enableLogging: true
 });

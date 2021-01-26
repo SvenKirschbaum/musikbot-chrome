@@ -6,9 +6,7 @@ let keycloak = new Keycloak({
 let promises = [];
 
 keycloak.init({
-    onLoad: 'check-sso',
     checkLoginIframe: false,
-    silentCheckSsoRedirectUri: window.location.origin + '/ui/silent-sso.html',
     enableLogging: true
 });
 
