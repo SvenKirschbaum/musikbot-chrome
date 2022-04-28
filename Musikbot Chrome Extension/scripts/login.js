@@ -1,5 +1,5 @@
 const keycloak = new Keycloak({
-    url: 'https://id.elite12.de/auth',
+    url: 'https://id.elite12.de',
     realm: 'elite12',
     clientId: 'musikbot-chrome'
 });
